@@ -43,7 +43,7 @@ const HeroSlider = () => {
         return (
           <SwiperSlide
             key={id}
-            className={`wrapper hero_wrapper hero_slide-${i}`}
+            className={`wrapper hero_wrapper hero_slide`}
           >
             <div className="hero_item_txt">
               <h3>{title}</h3>

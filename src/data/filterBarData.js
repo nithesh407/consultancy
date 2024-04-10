@@ -34,6 +34,11 @@ export const brandsMenu = [
   },
   {
     id: 3,
+    label: "Allextreme",
+    checked: false,
+  },
+  {
+    id: 4,
     label: "Hero MotoCorp",
     checked: false,
   },
@@ -42,22 +47,27 @@ export const brandsMenu = [
 export const categoryMenu = [
   {
     id: 1,
-    label: "Head Lights",
+    label: "Lights",
     checked: false,
   },
   {
     id: 2,
-    label: "Tyre",
+    label: "Tyres",
     checked: false,
   },
   {
     id: 3,
-    label: "Brake",
+    label: "Brakes",
     checked: false,
   },
   {
     id: 4,
     label: "Mirrors",
+    checked: false,
+  },
+  {
+    id: 5,
+    label: "Spare Parts",
     checked: false,
   },
 ];
