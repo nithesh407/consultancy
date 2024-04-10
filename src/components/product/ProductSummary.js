@@ -31,12 +31,12 @@ const ProductSummary = (props) => {
                             >
                                 Overview
                             </li>
-                            <li
+                            {/* <li
                                 className={`tabs_item ${activeClass('reviews')}`}
                                 onClick={() => handleActive('reviews')}
                             >
                                 Reviews
-                            </li>
+                            </li> */}
                         </ul>
                     </div>
 

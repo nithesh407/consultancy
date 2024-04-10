@@ -12,7 +12,7 @@ export const footMenu = [
             },
             {
                 id: 2,
-                link: "Track Order",
+                link: "Payment",
                 path: "/"
             },
             {
@@ -23,11 +23,6 @@ export const footMenu = [
             {
                 id: 4,
                 link: "Return Order",
-                path: "/"
-            },
-            {
-                id: 5,
-                link: "Warranty Info",
                 path: "/"
             },
         ]

@@ -72,7 +72,7 @@ const Header = () => {
                     </button>
                   )}
                   <div className="separator"></div>
-                  <ul>
+                  {/* <ul>
                     {dropdownMenu.map((item) => {
                       const { id, link, path } = item;
                       return (
@@ -81,7 +81,7 @@ const Header = () => {
                         </li>
                       );
                     })}
-                  </ul>
+                  </ul> */}
                 </div>
               </div>
             </nav>
