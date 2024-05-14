@@ -1,12 +1,10 @@
 import React from 'react';
-import reviewsData from '../../data/reviewsData';
 import useActive from '../../hooks/useActive';
-import ProductReviews from './ProductReviews';
 
 
 const ProductSummary = (props) => {
 
-    const { brand, title, info, category, type, connectivity } = props;
+    const { brand, title, info, category } = props;
 
     const { active, handleActive, activeClass } = useActive('specs');
 
@@ -31,16 +29,9 @@ const ProductSummary = (props) => {
                             >
                                 Overview
                             </li>
-                            {/* <li
-                                className={`tabs_item ${activeClass('reviews')}`}
-                                onClick={() => handleActive('reviews')}
-                            >
-                                Reviews
-                            </li> */}
                         </ul>
                     </div>
 
-                    {/*===== Product-Summary-Details =====*/}
                     <div className="prod_summary_details">
                         {
                             active === 'specs' ? (
@@ -58,18 +49,6 @@ const ProductSummary = (props) => {
                                             <span>Generic Name</span>
                                             <span>{category}</span>
                                         </li>
-                                        <li>
-                                            <span>Headphone Type</span>
-                                            <span>{type}</span>
-                                        </li>
-                                        <li>
-                                            <span>Connectivity</span>
-                                            <span>{connectivity}</span>
-                                        </li>
-                                        <li>
-                                            <span>Microphone</span>
-                                            <span>Yes</span>
-                                        </li>
                                     </ul>
                                 </div>
                             ) : active === 'overview' ? (
@@ -84,16 +63,7 @@ const ProductSummary = (props) => {
                                 </div>
                             ) : (
                                 <div className="prod_reviews">
-                                    <ul>
-                                        {
-                                            reviewsData.map(item => (
-                                                <ProductReviews
-                                                    key={item.id}
-                                                    {...item}
-                                                />
-                                            ))
-                                        }
-                                    </ul>
+
                                 </div>
                             )
 

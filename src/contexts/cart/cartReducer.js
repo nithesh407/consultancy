@@ -2,14 +2,14 @@ const cartReducer = (state, action) => {
     switch (action.type) {
 
         case 'ADD_TO_CART':
-            const newItemId = action.payload.item.id;
-            const itemExist = state.cartItems.some(item => item.id === newItemId);
+            const newItemId = action.payload.item.productID;
+            const itemExist = state.cartItems.some(item => item.productID === newItemId);
 
             let updatedCartItems = null;
 
             if (itemExist) {
                 updatedCartItems = state.cartItems.map(item => {
-                    if (item.id === newItemId) {
+                    if (item.productID === newItemId) {
                         return {
                             ...item,
                             quantity: item.quantity + 1
@@ -30,7 +30,7 @@ const cartReducer = (state, action) => {
         case 'REMOVE_FROM_CART':
             return {
                 ...state,
-                cartItems: state.cartItems.filter(item => item.id !== action.payload.itemId)
+                cartItems: state.cartItems.filter(item => item.productID !== action.payload.itemId)
             };
 
 
@@ -38,7 +38,7 @@ const cartReducer = (state, action) => {
             return {
                 ...state,
                 cartItems: state.cartItems.map(item => {
-                    if (item.id === action.payload.itemId) {
+                    if (item.productID === action.payload.itemId) {
                         return {
                             ...item,
                             quantity: item.quantity + 1
@@ -53,7 +53,7 @@ const cartReducer = (state, action) => {
             return {
                 ...state,
                 cartItems: state.cartItems.map(item => {
-                    if (item.id === action.payload.itemId) {
+                    if (item.productID === action.payload.itemId) {
                         return {
                             ...item,
                             quantity: item.quantity - 1

@@ -5,7 +5,8 @@ import { calculateDiscount, displayMoney } from '../helpers/utils';
 import useDocTitle from '../hooks/useDocTitle';
 import useActive from '../hooks/useActive';
 import cartContext from '../contexts/cart/cartContext';
-import productsData from '../data/productsData';
+import axios from 'axios';
+// import productsData from '../data/productsData';
 import SectionsHead from '../components/common/SectionsHead';
 import RelatedSlider from '../components/sliders/RelatedSlider';
 import ProductSummary from '../components/product/ProductSummary';
@@ -15,20 +16,35 @@ import Services from '../components/common/Services';
 const ProductDetails = () => {
 
     useDocTitle('Product Details');
+    const [product, setProducts] = useState({});
+    const { productId } = useParams();
+    console.log(productId)
+
+    // here the 'id' received has 'string-type', so converting it to a 'Number'
+    // const prodId = parseInt(productId);
+    useEffect(() => {
+        async function fetchProd() {
+            const response = await fetch(`https://consultancy-server-o4z3.onrender.com/api/v1/products/${productId}`);
+            const productData = await response.json();
+            console.log(productData)
+            setProducts(productData)
+        }
+        fetchProd();
+    }, [])
 
     const { handleActive, activeClass } = useActive(0);
 
     const { addItem } = useContext(cartContext);
 
-    const { productId } = useParams();
+    console.log(product)
 
-    // here the 'id' received has 'string-type', so converting it to a 'Number'
-    const prodId = parseInt(productId);
+    // // showing the Product based on the received 'id'
+    // console.log(prodId)
+    // console.log(productsData)
+    // const product = productsData.find(item => item.productID === prodId);
+    const { productImageUrl: images, title, productDescription: info, productDiscountPrice: finalPrice, productOriginalPrice: originalPrice, productRating: rateCount, ratings, path, category } = product
 
-    // showing the Product based on the received 'id'
-    const product = productsData.find(item => item.id === prodId);
-
-    const { images, title, info, category, finalPrice, originalPrice, ratings, rateCount } = product;
+    // const { images, title, info, category, finalPrice, originalPrice, ratings, rateCount } = product;
 
     const [previewImg, setPreviewImg] = useState(images[0]);
 

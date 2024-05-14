@@ -14,7 +14,7 @@ const FilterBarOptions = () => {
         handleBrandsMenu,
         handleCategoryMenu,
         handlePrice,
-        selectedPrice: { price, minPrice, maxPrice },
+        selectedPrice: { productOriginalPrice: price, minPrice, maxPrice },
         mobFilterBar: { isMobSortVisible, isMobFilterVisible },
         handleMobSortVisibility,
         handleMobFilterVisibility,
@@ -64,7 +64,7 @@ const FilterBarOptions = () => {
                                 <li
                                     key={id}
                                     className={sortedValue === title ? 'active' : ''}
-                                    onClick={() => setSortedValue(title)}
+                                // onClick={() => setSortedValue(title)}
                                 >
                                     {title}
                                 </li>
@@ -103,7 +103,7 @@ const FilterBarOptions = () => {
                                             id={label}
                                             value={label}
                                             checked={checked}
-                                            onChange={() => handleBrandsMenu(id)}
+                                        // onChange={() => handleBrandsMenu(id)}
                                         />
                                         <label htmlFor={label}>{label}</label>
                                     </li>
@@ -127,7 +127,7 @@ const FilterBarOptions = () => {
                                             id={label}
                                             value={label}
                                             checked={checked}
-                                            onChange={() => handleCategoryMenu(id)}
+                                        // onChange={() => handleCategoryMenu(id)}
                                         />
                                         <label htmlFor={label}>{label}</label>
                                     </li>
@@ -141,13 +141,13 @@ const FilterBarOptions = () => {
                 <div className="filter_block">
                     <h4>Price</h4>
                     <div className="price_filter">
-                        <p>{displayPrice}</p>
+                        <p>{"₹ 4555271"}</p>
                         <input
                             type="range"
                             min={minPrice}
                             max={maxPrice}
-                            value={price}
-                            onChange={handlePrice}
+                            value="₹ 4555271"
+                        // onChange={handlePrice}
                         />
                     </div>
                 </div>

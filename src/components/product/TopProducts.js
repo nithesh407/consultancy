@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { BsArrowRight } from 'react-icons/bs';
 import useActive from '../../hooks/useActive';
@@ -7,8 +7,17 @@ import ProductCard from './ProductCard';
 
 
 const TopProducts = () => {
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        async function fetchProd() {
 
-    const [products, setProducts] = useState(productsData);
+            const response = await fetch('https://consultancy-server-o4z3.onrender.com/api/v1/products');
+            const productData = await response.json();
+            console.log(productData)
+            setProducts(productData.data)
+        }
+        fetchProd();
+    }, [])
     const { activeClass, handleActive } = useActive(0);
 
     // making a unique set of product's category
@@ -40,7 +49,7 @@ const TopProducts = () => {
                             <li
                                 key={i}
                                 className={`tabs_item ${activeClass(i)}`}
-                                onClick={() => handleProducts(item, i)}
+                            // onClick={() => handleProducts(item, i)}
                             >
                                 {item}
                             </li>
@@ -52,9 +61,10 @@ const TopProducts = () => {
                 {
                     products.slice(0, 11).map(item => (
                         <ProductCard
-                            key={item.id}
+                            key={item.productID}
                             {...item}
                         />
+
                     ))
                 }
                 <div className="card products_card browse_card">

@@ -40,10 +40,10 @@ const Header = () => {
             </h2>
             <nav className="nav_actions">
               <div className="search_action">
-                <span onClick={() => toggleSearch(true)}>
+                {/* <span onClick={() => toggleSearch(true)}>
                   <AiOutlineSearch />
                 </span>
-                <div className="tooltip">Search</div>
+                <div className="tooltip">Search</div> */}
               </div>
 
               <div className="cart_action">
@@ -65,12 +65,12 @@ const Header = () => {
                     Hello!{" "}
                     {formUserInfo && <Link to="*">&nbsp;{formUserInfo}</Link>}
                   </h4>
-                  <p>Access account and manage orders</p>
+                  {/* <p>Access account and manage orders</p>
                   {!formUserInfo && (
                     <button type="button" onClick={() => toggleForm(true)}>
                       Login / Signup
                     </button>
-                  )}
+                  )} */}
                   <div className="separator"></div>
                   {/* <ul>
                     {dropdownMenu.map((item) => {

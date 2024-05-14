@@ -10,7 +10,7 @@ const filtersReducer = (state, action) => {
                 allProducts: products,
                 selectedPrice: {
                     ...state.selectedPrice,
-                    price: maxPrice,
+                    productOriginalPrice: maxPrice,
                     minPrice: minPrice,
                     maxPrice,
                 }

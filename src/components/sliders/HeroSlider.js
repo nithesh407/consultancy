@@ -54,7 +54,7 @@ const HeroSlider = () => {
                   <del>{oldPrice}</del>
                 </small>
               </h2>
-              <Link to={`${path}${id}`} className="btn">
+              <Link to={`/All-products`} className="btn">
                 Shop Now
               </Link>
             </div>

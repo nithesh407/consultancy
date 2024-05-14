@@ -8,10 +8,9 @@ import QuantityBox from '../common/QuantityBox';
 
 const CartItem = (props) => {
 
-    const { id, images, title, info, finalPrice, originalPrice, quantity, path } = props;
+    const { productID: id, productImageUrl: images, title, productDescription: info, productDiscountPrice: finalPrice, productOriginalPrice: originalPrice, quantity = 5, path } = props;
 
     const { removeItem } = useContext(cartContext);
-
     const newPrice = displayMoney(finalPrice);
     const oldPrice = displayMoney(originalPrice);
 
@@ -20,14 +19,12 @@ const CartItem = (props) => {
         <>
             <div className="cart_item">
                 <figure className="cart_item_img">
-                    <Link to={`${path}${id}`}>
-                        <img src={images[0]} alt="product-img" />
-                    </Link>
+                    <img src={images[0]} alt="product-img" />
                 </figure>
                 <div className="cart_item_info">
                     <div className="cart_item_head">
                         <h4 className="cart_item_title">
-                            <Link to={`/product-details/${id}`}>{title} {info}</Link>
+                            {title} {info}
                         </h4>
                         <div className="cart_item_del">
                             <span onClick={() => removeItem(id)}>
