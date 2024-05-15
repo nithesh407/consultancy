@@ -23,7 +23,6 @@ const TopProducts = () => {
     // making a unique set of product's category
     const productsCategory = [
         'All',
-        ...new Set(productsData.map(item => item.category))
     ];
 
     // handling product's filtering

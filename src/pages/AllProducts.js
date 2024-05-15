@@ -18,7 +18,7 @@ const AllProducts = () => {
     return (
         <>
             <section id="all_products" className="section">
-                <FilterBar />
+                {/* <FilterBar /> */}
 
                 <div className="container">
                     {
