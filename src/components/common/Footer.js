@@ -73,7 +73,6 @@ const Footer = () => {
                         <div className="foot_copyright">
                             <p>
                                 {currYear} | Sri Vinayaga Store. All Rights Reserved.
-                                Built by | <a href="https://github.com/nithesh407">Nithesh407</a>
                             </p>
                         </div>
                         <div className="foot_social">
